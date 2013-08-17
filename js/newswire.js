@@ -43,8 +43,8 @@ function feedLoaded(result) {
             var entry = result.feed.entries[i];
             entry.source = result.feed.title;
             if (categorize(entry) === "uncategorized")
-                console.log("Article '"+entry.title+"' from "+entry.source+
-                " uncategorized. Categories: "+entry.categories.join(', ')+".");
+                console.log("'"+entry.title+"' from "+entry.source+
+                " was not categorized. Categories: "+entry.categories.join(' | ')+".");
         }
     }
     if (++internal_counter === Object.size(feeds)) {
