@@ -82,8 +82,6 @@ function build() {
     var wire = document.getElementById("wire");
     for (var section in sections) {
         var obj = sections[section];
-        console.log(obj);
-        console.log(obj.length);
         obj.sort(comparePublishTime);
         var s = document.getElementById(section);
         for (var j = 0; j < obj.length; j++){
@@ -112,7 +110,7 @@ function build() {
             var published_span = document.createElement("span");
             article.appendChild(published_span);
             
-            var published = document.createTextNode(Date(entry.publishedDate));
+            var published = document.createTextNode(entry.publishedDate);
             published_span.appendChild(published);
         }
     }
