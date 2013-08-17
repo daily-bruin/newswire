@@ -23,7 +23,9 @@ function OnLoad() {
     // Create feed instances
     feeds = {daily_bruin: new google.feeds.Feed("http://dailybruin.com/feed/"), 
              daily_trojan: new google.feeds.Feed("http://feeds.feedburner.com/DailyTrojan-rss/"),
-             daily_aztec: new google.feeds.Feed("http://thedailyaztec.com/feed/")};
+             daily_aztec: new google.feeds.Feed("http://thedailyaztec.com/feed/"),
+             daily_cal: new google.feeds.Feed("http://dailycal.org/feed/")
+            };
 
     for (var feed in feeds) {
         var obj = feeds[feed];
@@ -57,10 +59,13 @@ function categorize(entry) {
         switch(c) {
             case "news":
             case "breaking":
+            case "crime":
+            case "campus":
                 sections.ns.push(entry);
                 return "ns";
 
             case "sports":
+            case "football":
                 sections.sp.push(entry);
                 return "sp";
 
