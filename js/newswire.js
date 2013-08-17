@@ -50,6 +50,7 @@ function feedLoaded(result) {
     }
 }
 
+/* semi-crude way of determining feed categorization */
 function categorize(entry) {
     for (var i = 0; i < entry.categories.length; i++) {
         var c = entry.categories[i].toLowerCase();
