@@ -108,6 +108,12 @@ function build() {
             
             var source = document.createTextNode(entry.source);
             source_span.appendChild(source);
+            
+            var published_span = document.createElement("span");
+            article.appendChild(published_span);
+            
+            var published = document.createTextNode(Date(entry.publishedDate));
+            published_span.appendChild(published);
         }
     }
 }
