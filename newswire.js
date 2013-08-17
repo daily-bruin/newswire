@@ -1,6 +1,14 @@
 var sections = {ns: [], sp: [], ae: [], op: []};
 google.load("feeds", "1");
 
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
 function categorize(entry) {
     for (var i = 0; i < entry.categories.length; i++) {
         var c = entry.categories[i].toLowerCase();
@@ -34,21 +42,20 @@ function feedLoaded(result) {
             var category = categorize(entry);
         }
     }
-    if (++internal_counter === feeds.length-1) {
+    if (++internal_counter === Object.size(feeds)-1) {
         build();
     }
 }
 
 function OnLoad() {
     // Create feed instances
-    daily_bruin = new google.feeds.Feed("http://dailybruin.com/feed/");
-    daily_trojan = new google.feeds.Feed("http://feeds.feedburner.com/DailyTrojan-rss/");
-    daily_aztec = new google.feeds.Feed("http://thedailyaztec.com/feed/");
-    
-    feeds = [daily_bruin, daily_trojan, daily_aztec];
-    
-    for (var i = 0; i < feeds.length; i++) {
-        feeds[i].load(feedLoaded);
+    feeds = {daily_bruin: new google.feeds.Feed("http://dailybruin.com/feed/"), 
+             daily_trojan: new google.feeds.Feed("http://feeds.feedburner.com/DailyTrojan-rss/"),
+             daily_aztec: new google.feeds.Feed("http://thedailyaztec.com/feed/")};
+
+    for (var feed in feeds) {
+        var obj = feeds[feed];
+        obj.load(feedLoaded);
     }
 }
 
@@ -65,14 +72,14 @@ function build() {
     for (var section in sections) {
         var obj = sections[section];
         obj.sort(comparePublishTime);
-        var div = document.getElementById(section);
+        var s = document.getElementById(section);
         for (var j = 0; j < obj.length; j++){
             var entry = obj[j];
             var title_link = document.createElement("a");
             title_link.className = "title";
             title_link.href = entry.link;
             title_link.target = "blank";
-            div.appendChild(title_link);
+            s.appendChild(title_link);
             var title = document.createTextNode(entry.title);
             title_link.appendChild(title);
         }
