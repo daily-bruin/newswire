@@ -53,7 +53,7 @@ function feedLoaded(result) {
                 " uncategorized. Categories: "+entry.categories.join(', ')+".");
         }
     }
-    if (++internal_counter === Object.size(feeds)-1) {
+    if (++internal_counter === Object.size(feeds)) {
         build();
     }
 }
