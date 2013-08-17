@@ -61,6 +61,7 @@ function categorize(entry) {
             case "breaking":
             case "crime":
             case "campus":
+            case "ucpd":
                 sections.ns.push(entry);
                 return "ns";
 
@@ -121,6 +122,13 @@ function build() {
             
             var published = document.createTextNode(moment(entry.publishedDate).fromNow());
             published_span.appendChild(published);
+            
+            var snippet_span = document.createElement("span");
+            snippet_span.innerHTML = entry.contentSnippet;
+            //using innerHTML here instead of createTextNode because of character encoding
+            //problems that arose with createTextNode
+            article.appendChild(snippet_span);
+            
         }
     }
 }
