@@ -118,12 +118,14 @@ function build() {
             source_span.appendChild(source);
             
             var published_span = document.createElement("span");
+            published_span.className = "published";
             article.appendChild(published_span);
             
             var published = document.createTextNode(moment(entry.publishedDate).fromNow());
             published_span.appendChild(published);
             
             var snippet_span = document.createElement("span");
+            snippet_span.className = "snippet";
             snippet_span.innerHTML = entry.contentSnippet;
             //using innerHTML here instead of createTextNode because of character encoding
             //problems that arose with createTextNode
