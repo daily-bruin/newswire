@@ -1,6 +1,4 @@
-var sections = {ns: [], sp: [], ae: [], op: []};
-google.load("feeds", "1");
-
+/* utility functions */
 Object.size = function(obj) {
     var size = 0, key;
     for (key in obj) {
@@ -8,6 +6,49 @@ Object.size = function(obj) {
     }
     return size;
 };
+
+function comparePublishTime(a,b) {
+    if (Date(a.publishedDate) < Date(b.publishedDate))
+        return -1;
+    if (Date(a.publishedDate) > Date(b.publishedDate))
+        return 1;
+    return 0;
+}
+
+/* initialization */
+var sections = {ns: [], sp: [], ae: [], op: []};
+google.load("feeds", "1");
+
+function OnLoad() {
+    // Create feed instances
+    feeds = {daily_bruin: new google.feeds.Feed("http://dailybruin.com/feed/"), 
+             daily_trojan: new google.feeds.Feed("http://feeds.feedburner.com/DailyTrojan-rss/"),
+             daily_aztec: new google.feeds.Feed("http://thedailyaztec.com/feed/")};
+
+    for (var feed in feeds) {
+        var obj = feeds[feed];
+        obj.load(feedLoaded);
+    }
+}
+
+/* callback when a feed is loaded */
+var internal_counter = 0;
+function feedLoaded(result) {
+    if (!result.error) {
+        if (result.feed.entries.length === 0)
+            console.log("No entries found for "+result.feed.title+"'s feed!");
+        for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            entry.source = result.feed.title;
+            if (categorize(entry) === "uncategorized")
+                console.log("Article '"+entry.title+"' from "+entry.source+
+                " uncategorized. Categories: "+entry.categories.join(', ')+".");
+        }
+    }
+    if (++internal_counter === Object.size(feeds)) {
+        build();
+    }
+}
 
 function categorize(entry) {
     for (var i = 0; i < entry.categories.length; i++) {
@@ -39,45 +80,7 @@ function categorize(entry) {
     return "uncategorized";
 }
 
-var internal_counter = 0;
-// Our callback function, for when a feed is loaded.
-function feedLoaded(result) {
-    if (!result.error) {
-        if (result.feed.entries.length === 0)
-            console.log("No entries found for "+result.feed.title+"'s feed!");
-        for (var i = 0; i < result.feed.entries.length; i++) {
-            var entry = result.feed.entries[i];
-            entry.source = result.feed.title;
-            if (categorize(entry) === "uncategorized")
-                console.log("Article '"+entry.title+"' from "+entry.source+
-                " uncategorized. Categories: "+entry.categories.join(', ')+".");
-        }
-    }
-    if (++internal_counter === Object.size(feeds)) {
-        build();
-    }
-}
-
-function OnLoad() {
-    // Create feed instances
-    feeds = {daily_bruin: new google.feeds.Feed("http://dailybruin.com/feed/"), 
-             daily_trojan: new google.feeds.Feed("http://feeds.feedburner.com/DailyTrojan-rss/"),
-             daily_aztec: new google.feeds.Feed("http://thedailyaztec.com/feed/")};
-
-    for (var feed in feeds) {
-        var obj = feeds[feed];
-        obj.load(feedLoaded);
-    }
-}
-
-function comparePublishTime(a,b) {
-    if (Date(a.publishedDate) < Date(b.publishedDate))
-        return -1;
-    if (Date(a.publishedDate) > Date(b.publishedDate))
-        return 1;
-    return 0;
-}
-
+/* DOM interface */
 function build() {
     var wire = document.getElementById("wire");
     for (var section in sections) {
@@ -110,7 +113,7 @@ function build() {
             var published_span = document.createElement("span");
             article.appendChild(published_span);
             
-            var published = document.createTextNode(entry.publishedDate);
+            var published = document.createTextNode(moment(entry.publishedDate).fromNow());
             published_span.appendChild(published);
         }
     }
