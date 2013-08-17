@@ -2,7 +2,40 @@ body {
     font-family: serif;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
 #wire {
-    width: 900px;
+    width: 925px;
     margin: 0 auto;
+}
+
+.article {
+    margin: 0.5em 0;
+    line-height: 1.1em;
+}
+
+.source {
+    text-transform: uppercase;
+    padding: 0 0.5em;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.published {
+    font-style: oblique;
+    color: #888;
+    font-size: 0.8em;
+}
+
+.snippet {
+    display: block;
+    font-size: 0.8em;
+    color: #444;
 }
