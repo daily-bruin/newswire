@@ -4,9 +4,9 @@ $(document).ready(function(){
     $('#nav').onePageNav({
         currentClass: 'current',
         changeHash: false,
-        scrollSpeed: 750,
+        scrollSpeed: 500,
         scrollOffset: 50,
-        scrollThreshold: 0.5,
+        scrollThreshold: 0.4,
         filter: '',
         easing: 'swing',
         begin: function() {
