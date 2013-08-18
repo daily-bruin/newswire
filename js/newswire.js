@@ -144,7 +144,6 @@ function build() {
                 snippet_span.className = "snippet";
                 snippet_span.innerHTML = entry.contentSnippet;
                 //using innerHTML here instead of createTextNode because of character encoding
-                //problems that arose with createTextNode
                 article.appendChild(snippet_span);
             }
         }
