@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('#nav').onePageNav({
         currentClass: 'current',
         changeHash: false,
-        scrollSpeed: 500,
+        scrollSpeed: 400,
         scrollOffset: 50,
         scrollThreshold: 0.4,
         filter: '',
