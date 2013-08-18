@@ -50,6 +50,13 @@ li:hover {
     background-color: rgba(0,0,0, 0.05);
 }
 
+footer {
+    width: 930px;
+    margin: 1em auto;
+    text-align: center;
+    font-size: 0.6em;
+    color: #888;
+}
 
 #nav {
     float: right;
