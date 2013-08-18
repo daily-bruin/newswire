@@ -8,9 +8,11 @@ Object.size = function(obj) {
 };
 
 function comparePublishTime(a,b) {
-    if (Date(a.publishedDate) < Date(b.publishedDate))
+    a = new Date(a.publishedDate);
+    b = new Date(b.publishedDate);
+    if (a > b)
         return -1;
-    if (Date(a.publishedDate) > Date(b.publishedDate))
+    if (a < b)
         return 1;
     return 0;
 }
