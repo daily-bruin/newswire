@@ -96,45 +96,56 @@ function build() {
     var wire = document.getElementById("wire");
     for (var section in sections) {
         var obj = sections[section];
-        obj.sort(comparePublishTime);
         var s = document.getElementById(section);
-        for (var j = 0; j < obj.length; j++){
-            var entry = obj[j];
+        
+        if (obj.length === 0) {
+            var info_span = document.createElement("span");
+            info_span.className = "info";
+            s.appendChild(info_span);
             
-            var article = document.createElement("div");
-            article.className = "article";
-            s.appendChild(article);
-            
-            var title_link = document.createElement("a");
-            title_link.className = "title";
-            title_link.href = entry.link;
-            title_link.target = "blank";
-            article.appendChild(title_link);
-            
-            var title = document.createTextNode(entry.title);
-            title_link.appendChild(title);
-            
-            var source_span = document.createElement("span");
-            source_span.className = "source";
-            article.appendChild(source_span);
-            
-            var source = document.createTextNode(entry.source);
-            source_span.appendChild(source);
-            
-            var published_span = document.createElement("span");
-            published_span.className = "published";
-            article.appendChild(published_span);
-            
-            var published = document.createTextNode(moment(entry.publishedDate).fromNow());
-            published_span.appendChild(published);
-            
-            var snippet_span = document.createElement("span");
-            snippet_span.className = "snippet";
-            snippet_span.innerHTML = entry.contentSnippet;
-            //using innerHTML here instead of createTextNode because of character encoding
-            //problems that arose with createTextNode
-            article.appendChild(snippet_span);
-            
+            var info = document.createTextNode("There are no stories to display in this section right now.");
+            info_span.appendChild(info);
+        }
+        
+        else {
+            obj.sort(comparePublishTime);
+            for (var j = 0; j < obj.length; j++){
+                var entry = obj[j];
+                
+                var article = document.createElement("div");
+                article.className = "article";
+                s.appendChild(article);
+                
+                var title_link = document.createElement("a");
+                title_link.className = "title";
+                title_link.href = entry.link;
+                title_link.target = "blank";
+                article.appendChild(title_link);
+                
+                var title = document.createTextNode(entry.title);
+                title_link.appendChild(title);
+                
+                var source_span = document.createElement("span");
+                source_span.className = "source";
+                article.appendChild(source_span);
+                
+                var source = document.createTextNode(entry.source);
+                source_span.appendChild(source);
+                
+                var published_span = document.createElement("span");
+                published_span.className = "published";
+                article.appendChild(published_span);
+                
+                var published = document.createTextNode(moment(entry.publishedDate).fromNow());
+                published_span.appendChild(published);
+                
+                var snippet_span = document.createElement("span");
+                snippet_span.className = "snippet";
+                snippet_span.innerHTML = entry.contentSnippet;
+                //using innerHTML here instead of createTextNode because of character encoding
+                //problems that arose with createTextNode
+                article.appendChild(snippet_span);
+            }
         }
     }
 }
