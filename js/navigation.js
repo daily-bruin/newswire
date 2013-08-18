@@ -6,7 +6,7 @@ $(document).ready(function(){
         changeHash: false,
         scrollSpeed: 400,
         scrollOffset: 50,
-        scrollThreshold: 0.4,
+        scrollThreshold: 0.2,
         filter: '',
         easing: 'swing',
         begin: function() {
