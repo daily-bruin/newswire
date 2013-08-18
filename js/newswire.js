@@ -71,6 +71,7 @@ function categorize(entry) {
             case "campus":
             case "ucpd":
             case "city":
+            case "breaking news":
                 sections.ns.push(entry);
                 return "ns";
 
