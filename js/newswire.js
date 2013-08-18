@@ -28,7 +28,11 @@ function OnLoad() {
     feeds = {daily_bruin: new google.feeds.Feed("http://dailybruin.com/feed/"), 
              daily_trojan: new google.feeds.Feed("http://feeds.feedburner.com/DailyTrojan-rss/"),
              daily_aztec: new google.feeds.Feed("http://thedailyaztec.com/feed/"),
-             daily_cal: new google.feeds.Feed("http://dailycal.org/feed/")
+             daily_cal: new google.feeds.Feed("http://dailycal.org/feed/"),
+             daily_49er: new google.feeds.Feed("http://www.daily49er.com/feed/"),
+             daily_sundial: new google.feeds.Feed("http://feeds.feedburner.com/dailysundial/"),
+             the_aggie: new google.feeds.Feed("http://www.theaggie.org/feed/"),
+             the_collegian: new google.feeds.Feed("http://collegian.csufresno.edu/feed/"),
             };
 
     for (var feed in feeds) {
