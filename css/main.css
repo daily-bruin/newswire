@@ -26,10 +26,28 @@ header {
     border-bottom: 1px solid rgba(0,0,0, 0.1);
 }
 
-header #contents {
-    width: 930px;
-    position: relative;
-    margin: 0 auto;
+    header #contents {
+        width: 930px;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    header img {
+        margin: 2px 5px 0 0;
+    }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+#nav {
+    float: right;
 }
 
 #wire {
@@ -37,6 +55,14 @@ header #contents {
     margin: 0 auto;
     padding-top: 50px;
 }
+
+.current {
+    background-color: black;
+}
+
+    .current a {
+        color: white;
+    }
 
 .section {
     margin-bottom: 2em;

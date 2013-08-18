@@ -1,3 +1,5 @@
+//vanilla js
+
 /* utility functions */
 Object.size = function(obj) {
     var size = 0, key;
