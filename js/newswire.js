@@ -37,6 +37,8 @@ function OnLoad() {
 
     for (var feed in feeds) {
         var obj = feeds[feed];
+        obj.includeHistoricalEntries(); //show historical entries no longer in xml
+        obj.setNumEntries(20);
         obj.load(feedLoaded);
     }
 }
@@ -91,6 +93,7 @@ function categorize(entry) {
             case "opinion":
             case "columns":
             case "editorial":
+            case "editorials":
                 sections.op.push(entry);
                 return "op";
         }
