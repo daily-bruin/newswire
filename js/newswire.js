@@ -50,7 +50,7 @@ function OnLoad() {
     for (var feed in feeds) {
         var obj = feeds[feed];
         obj.includeHistoricalEntries(); //show historical entries no longer in xml
-        obj.setNumEntries(20);
+        obj.setNumEntries(30);
         obj.load(feedLoaded);
     }
 }
@@ -63,7 +63,7 @@ function feedLoaded(result) {
             console.log("No entries found for "+result.feed.title+"'s feed!");
         for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
-            if (daysBeforeNow(entry.publishedDate) > 30) {
+            if (daysBeforeNow(entry.publishedDate) > 22) {
                 break;
             }
             entry.source = result.feed.title;
