@@ -57,6 +57,7 @@ function OnLoad() {
 
 /* callback when a feed is loaded */
 var internal_counter = 0;
+var total_uncategorized = 0;
 function feedLoaded(result) {
     if (!result.error) {
         if (result.feed.entries.length === 0)
@@ -67,9 +68,11 @@ function feedLoaded(result) {
                 break;
             }
             entry.source = result.feed.title;
-            if (categorize(entry) === "uncategorized")
+            if (categorize(entry) === "uncategorized") {
                 console.log("\""+entry.title+"\" from "+entry.source+
                 " was not categorized. Categories: "+entry.categories.join(', '));
+                total_uncategorized++;
+            }
         }
     }
     if (++internal_counter === Object.size(feeds)) {
@@ -124,6 +127,7 @@ function categorize(entry) {
 
 /* DOM interface */
 function build() {
+    console.log(total_uncategorized+" uncategorized articles");
     var wire = document.getElementById("wire");
     for (var section in sections) {
         var obj = sections[section];
