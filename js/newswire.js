@@ -19,14 +19,16 @@ function comparePublishTime(a,b) {
     return 0;
 }
 
-function timeFromNow(date_string) {
-    var userDate = new Date(dateString);
-    if (isNaN(userDate.valueOf())) {
+function daysBeforeNow(date_string) {
+    var day = new Date(date_string);
+    if (isNaN(day.valueOf())) {
         console.log("Invalid date!");
         return;
     }
-    var currentDate = new Date();
-    return currentDate - userDate;
+    var today = new Date();
+    var diff_in_milliseconds = today - day;
+    var diff_in_days = diff_in_milliseconds/(1000*60*60*24);
+    return diff_in_days
 }
 
 /* initialization */
@@ -61,7 +63,7 @@ function feedLoaded(result) {
             console.log("No entries found for "+result.feed.title+"'s feed!");
         for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
-            //TODO: compare dates here
+            console.log(daysBeforeNow(entry.publishedDate)+entry.title);
             entry.source = result.feed.title;
             if (categorize(entry) === "uncategorized")
                 console.log("\""+entry.title+"\" from "+entry.source+
