@@ -5,7 +5,7 @@ $(document).ready(function(){
         currentClass: 'current',
         changeHash: false,
         scrollSpeed: 400,
-        scrollOffset: 50,
+        scrollOffset: 55,
         scrollThreshold: 0.1,
         filter: '',
         easing: 'swing',
