@@ -19,6 +19,16 @@ function comparePublishTime(a,b) {
     return 0;
 }
 
+function timeFromNow(date_string) {
+    var userDate = new Date(dateString);
+    if (isNaN(userDate.valueOf())) {
+        console.log("Invalid date!");
+        return;
+    }
+    var currentDate = new Date();
+    return currentDate - userDate;
+}
+
 /* initialization */
 var sections = {ns: [], sp: [], ae: [], op: []};
 google.load("feeds", "1");
@@ -51,6 +61,7 @@ function feedLoaded(result) {
             console.log("No entries found for "+result.feed.title+"'s feed!");
         for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
+            //TODO: compare dates here
             entry.source = result.feed.title;
             if (categorize(entry) === "uncategorized")
                 console.log("\""+entry.title+"\" from "+entry.source+
