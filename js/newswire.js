@@ -74,6 +74,8 @@ function categorize(entry) {
             case "ucpd":
             case "city":
             case "breaking news":
+            case "research":
+            case "research &amp; ideas":
                 sections.ns.push(entry);
                 return "ns";
 
@@ -87,6 +89,10 @@ function categorize(entry) {
             case "a&amp;e":
             case "arts":
             case "entertainment":
+            case "arts &amp; entertainment":
+            case "restaurants":
+            case "spotlight":
+            case "life &amp; style":
                 sections.ae.push(entry);
                 return "ae";
 
