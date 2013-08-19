@@ -28,7 +28,7 @@ function daysBeforeNow(date_string) {
     var today = new Date();
     var diff_in_milliseconds = today - day;
     var diff_in_days = diff_in_milliseconds/(1000*60*60*24);
-    return diff_in_days
+    return diff_in_days;
 }
 
 /* initialization */
@@ -63,7 +63,9 @@ function feedLoaded(result) {
             console.log("No entries found for "+result.feed.title+"'s feed!");
         for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
-            console.log(daysBeforeNow(entry.publishedDate)+entry.title);
+            if (daysBeforeNow(entry.publishedDate) > 30) {
+                break;
+            }
             entry.source = result.feed.title;
             if (categorize(entry) === "uncategorized")
                 console.log("\""+entry.title+"\" from "+entry.source+
