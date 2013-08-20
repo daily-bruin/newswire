@@ -84,45 +84,21 @@ function feedLoaded(result) {
 function categorize(entry) {
     for (var i = 0; i < entry.categories.length; i++) {
         var c = entry.categories[i].toLowerCase();
-        switch(c) {
-            case "news":
-            case "breaking":
-            case "crime":
-            case "campus":
-            case "ucpd":
-            case "city":
-            case "breaking news":
-            case "research":
-            case "research &amp; ideas":
-                sections.ns.push(entry);
-                return "ns";
-
-            case "sports":
-            case "football":
-                sections.sp.push(entry);
-                return "sp";
-
-            case "ae":
-            case "lifestyle":
-            case "a&amp;e":
-            case "arts":
-            case "entertainment":
-            case "arts &amp; entertainment":
-            case "restaurants":
-            case "spotlight":
-            case "life &amp; style":
-            case "science &amp; technology":
-                sections.ae.push(entry);
-                return "ae";
-
-            case "opinion":
-            case "columns":
-            case "editorial":
-            case "editorials":
-            case "editorial cartoons":
-            case "opinions":
-                sections.op.push(entry);
-                return "op";
+        if (c.match(/news|breaking|crime|campus|city|research|science|ucpd/)) {
+            sections.ns.push(entry);
+            return "ns";
+        }
+        else if (c.match(/sports|football/)) {
+            sections.sp.push(entry);
+            return "sp";
+        }
+        else if (c.match(/arts|entertainment|lifestyle|film|tv|restaurants|spotlight/)) {
+            sections.ae.push(entry);
+            return "ae";
+        }
+        else if (c.match(/opinion|columns|editor[ial]?/)) {
+            sections.op.push(entry);
+            return "op";
         }
     }
     return "uncategorized";
