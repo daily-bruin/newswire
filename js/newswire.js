@@ -111,6 +111,7 @@ function categorize(entry) {
             case "restaurants":
             case "spotlight":
             case "life &amp; style":
+            case "science &amp; technology":
                 sections.ae.push(entry);
                 return "ae";
 
@@ -118,6 +119,8 @@ function categorize(entry) {
             case "columns":
             case "editorial":
             case "editorials":
+            case "editorial cartoons":
+            case "opinions":
                 sections.op.push(entry);
                 return "op";
         }
