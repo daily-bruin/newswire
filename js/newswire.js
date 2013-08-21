@@ -84,21 +84,21 @@ function feedLoaded(result) {
 function categorize(entry) {
     for (var i = 0; i < entry.categories.length; i++) {
         var c = entry.categories[i].toLowerCase();
-        if (c.match(/news|breaking|crime|campus|city|research|science|ucpd|^uc\s+/)) {
-            sections.ns.push(entry);
-            return "ns";
-        }
-        else if (c.match(/sports|football/)) {
+        if (c.match(/sports|football/)) {
             sections.sp.push(entry);
             return "sp";
-        }
-        else if (c.match(/arts|entertainment|lifestyle|film|tv|restaurants|spotlight|diversions|sandbox/)) {
-            sections.ae.push(entry);
-            return "ae";
         }
         else if (c.match(/opinion|columns|editor[ial]?/)) {
             sections.op.push(entry);
             return "op";
+        }
+        else if (c.match(/news|breaking|crime|campus|city|research|science|ucpd|^uc\s+/)) {
+            sections.ns.push(entry);
+            return "ns";
+        }
+        else if (c.match(/arts|entertainment|lifestyle|film|tv|restaurants|spotlight|diversions|sandbox/)) {
+            sections.ae.push(entry);
+            return "ae";
         }
     }
     return "uncategorized";
