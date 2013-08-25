@@ -39,6 +39,7 @@ header {
 
     header img {
         margin: 6px 7px 0 0;
+        clear: none;
     }
 
 ul {
