@@ -64,7 +64,7 @@ function feedLoaded(result) {
             console.log("No entries found for "+result.feed.title+"'s feed!");
         for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
-            if (daysBeforeNow(entry.publishedDate) > 1) {
+            if (daysBeforeNow(entry.publishedDate) > 3) {
                 break;
             }
             entry.source = result.feed.title;
@@ -107,7 +107,7 @@ function categorize(entry) {
 /* DOM interface */
 function build() {
     console.log(total_uncategorized+" uncategorized articles");
-    var wire = document.getElementById("wire");
+    var wire = document.getElementById("content");
     for (var section in sections) {
         var obj = sections[section];
         var s = document.getElementById(section);
