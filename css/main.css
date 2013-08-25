@@ -64,6 +64,10 @@ footer {
     color: #888;
 }
 
+    footer a {
+        color: #888;
+    }
+
 #nav {
     float: right;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
