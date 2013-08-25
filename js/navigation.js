@@ -5,8 +5,8 @@ $(document).ready(function(){
         currentClass: 'current',
         changeHash: false,
         scrollSpeed: 400,
-        scrollOffset: 55,
-        scrollThreshold: 0.1,
+        scrollOffset: 21,
+        scrollThreshold: 0.01,
         filter: '',
         easing: 'swing',
         begin: function() {

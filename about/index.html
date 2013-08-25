@@ -2,46 +2,54 @@
     <head>
         <title>About the newswire | Daily Bruin</title>
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="js/jquery.scrollTo.js"></script>
-        <script type="text/javascript" src="js/jquery.nav.js"></script>
-        <script type="text/javascript" src="js/navigation.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/main.css"/>
-        <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="../js/jquery.nav.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="css/about.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
     </head>
 <body>
     <header>
         <div id="contents">
-            <a href="http://dailybruin.com/" title="Daily Bruin home page"><img src="img/nameplate_alpha_simple_x28.png"/></a>
-            <a href="http://wire.dailybruin.com" title="Newswire main page"><img src="img/newswire_banner.png"/></a>
+            <a href="http://dailybruin.com/" title="Daily Bruin home page"><img src="../img/nameplate_alpha_simple_x28.png"/></a>
+            <a href="http://wire.dailybruin.com" title="Newswire main page"><img src="../img/newswire_banner.png"/></a>
+            <ul id="nav-about">
+                <li class="current"><a href="#">About</a></li>
+            </ul>
             <ul id="nav">
-                <li class="current"><a href="#ns">News</a></li><li>
-                <a href="#sp">Sports</a></li><li>
-                <a href="#ae">A&amp;E</a></li><li>
-                <a href="#op">Opinion</a></li><li>
-                <a href="http://example.com">About</a></li>
+                <li><a href="../index.html#ns">News</a></li><li>
+                <a href="../index.html#sp">Sports</a></li><li>
+                <a href="../index.html#ae">A&amp;E</a></li><li>
+                <a href="../index.html#op">Opinion</a></li>
             </ul>
         </div>
     </header>
-    <div id="wire">
-        <div class="section" id="ns">
-            <h1>News</h1>
+    <div id="content">
+        <div class="section" id="about">
+            <p class="descriptor">Here's a short description of what this newswire is all about. People might land on this page from a Google search, or they may be part of a college newspaper that wants to join. They'll land on wire.dailybruin.com and be like, &ldquo;What's this wire all about?&rdquo; &ldquo;Where do I sign up?&rdquo; This blurb is for people like that.</p>
         </div>
         
-        <div class="section" id="sp">
-            <h1>Sports</h1>
+        <div class="section" id="contact">
+            <h1 class="about">Contact</h1>
+            <p>If you have questions about this newswire, maybe you want to join, or just chat with some cool news people, you should talk to one of these guys.</p>
+            <div class="contact-person"><strong>Jillian Beck</strong>, <span class="position">editor-in-chief</span><br/><a href="mailto:jbeck@media.ucla.edu">jbeck@media.ucla.edu</a></div>
+            <div class="contact-person"><strong>Loic Hostetter</strong>, <span class="position">managing editor</span><br/><a href="mailto:lhostetter@media.ucla.edu">lhostetter@media.ucla.edu</a></div>
         </div>
         
-        <div class="section" id="ae">
-            <h1>A&amp;E</h1>
-        </div>
-        
-        <div class="section" id="op">
-            <h1>Opinion</h1>
+        <div class="section" id="terms">
+            <h1 class="about">Terms of Service</h1>
+            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+            <p>Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.</p>
+            <p>Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
+            <p>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
+            <p>Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.</p>
+            <p>Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable potentialities.</p>
+            <p>Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or "organic" sources.</p>
+            <p>Credibly innovate granular internal or "organic" sources whereas high standards in web-readiness. Energistically scale future-proof core competencies vis-a-vis impactful experiences. Dramatically synthesize integrated schemas with optimal networks.</p>
         </div>
     </div>
     
     <footer>
-        Stories are copyright of their respective owners.
+        <a href="#">About</a> | <a href="#contact">Contact</a> | <a href="#terms">Terms of Service</a>
     </footer>
 </body>
 </html>

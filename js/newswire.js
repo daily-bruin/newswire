@@ -64,7 +64,7 @@ function feedLoaded(result) {
             console.log("No entries found for "+result.feed.title+"'s feed!");
         for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
-            if (daysBeforeNow(entry.publishedDate) > 3) {
+            if (daysBeforeNow(entry.publishedDate) > 1) {
                 break;
             }
             entry.source = result.feed.title;
