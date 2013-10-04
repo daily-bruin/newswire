@@ -42,19 +42,19 @@ header {
         float: left;
     }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+    header ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 
-li {
-    display: inline-block;
-}
+    header li {
+        display: inline-block;
+    }
 
-li:hover {
-    background-color: rgba(0,0,0, 0.05);
-}
+    header li:hover {
+        background-color: rgba(0,0,0, 0.05);
+    }
 
 footer {
     width: 950px;
