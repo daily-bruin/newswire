@@ -21,6 +21,10 @@ h1 {
     margin: 0 0 0 -0.02em;
 }
 
+ul li {
+	list-style-type: square;
+}
+
 header {
     position: fixed;
     width: 100%;
