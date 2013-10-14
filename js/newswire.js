@@ -34,16 +34,19 @@ function daysBeforeNow(date_string) {
 /* initialization */
 var sections = {ns: [], sp: [], ae: [], op: []};
 google.load("feeds", "1");
+NUM_ENTRIES_TO_CHECK = 30;
+DAYS_TO_DISPLAY = 1;
 
 function OnLoad() {
     // Create feed instances
     feeds = {daily_bruin: new google.feeds.Feed("http://dailybruin.com/feed/"),
+             the_orion: new google.feeds.Feed("http://theorion.com/feed/")
             };
 
     for (var feed in feeds) {
         var obj = feeds[feed];
         obj.includeHistoricalEntries(); //show historical entries no longer in xml
-        obj.setNumEntries(30);
+        obj.setNumEntries(NUM_ENTRIES_TO_CHECK);
         obj.load(feedLoaded);
     }
 }
@@ -57,7 +60,7 @@ function feedLoaded(result) {
             console.log("No entries found for "+result.feed.title+"'s feed!");
         for (var i = 0; i < result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
-            if (daysBeforeNow(entry.publishedDate) > 1) {
+            if (daysBeforeNow(entry.publishedDate) > DAYS_TO_DISPLAY) {
                 break;
             }
             entry.source = result.feed.title;
