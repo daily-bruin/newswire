@@ -92,7 +92,7 @@ function categorize(entry) {
             sections.ns.push(entry);
             return "ns";
         }
-        else if (c.match(/a&amp;e|arts|entertainment|lifestyle|film|tv|restaurants|music|spotlight|diversions|sandbox/)) {
+        else if (c.match(/a&amp;e|arts|entertainment|lifestyle|film|tv|restaurants|music|spotlight|diversions|features/)) {
             sections.ae.push(entry);
             return "ae";
         }
