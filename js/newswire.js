@@ -40,7 +40,8 @@ DAYS_TO_DISPLAY = 1;
 function OnLoad() {
     // Create feed instances
     feeds = {daily_bruin: new google.feeds.Feed("http://dailybruin.com/feed/"),
-             the_orion: new google.feeds.Feed("http://theorion.com/feed/")
+             the_orion: new google.feeds.Feed("http://theorion.com/feed/"),
+             the_aggie: new google.feeds.Feed("http://www.theaggie.org/feed/")
             };
 
     for (var feed in feeds) {
